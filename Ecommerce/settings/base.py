@@ -1,10 +1,11 @@
 import os
+import sys
 from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 
-SECRET_KEY = '6231cab891eb73e468e567930272b1feb3042007f23a7c8f'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,7 +68,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 # Auth
@@ -84,9 +85,9 @@ LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIA3TCK63SZQMP63GFS'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'dawhite'
-AWS_DEFAULT_ACL = None
-AWS_S3_FILE_OVERWRITE = False
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIA3TCK63SZQMP63GFS'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'dawhite'
+# AWS_DEFAULT_ACL = None
+# AWS_S3_FILE_OVERWRITE = False
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
