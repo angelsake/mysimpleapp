@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+    body {
+        font-family: 'Open-sans', sans-serif;
+        font-size: 17px;
+        line-height: 1.5em;
+    }
+
+    .container {
+        margin: auto;
+    }
+
+    /* COMMON CLASSES */
+    .primary-text {
+        color: #56a79a;
+    }
+
+    .primary-background {
+        background: #56a79a;
+    }
+
+    #features h2 {
+        font-size: 35px;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    #features p {
+        color: #888;
+        margin: 0;
+        margin-bottom: 40px;
+    }
+
+    #features .fa {
+        font-size: 60px;
+        color: #56a79a;
+    }
+
+    #info {
+        color: #fff;
+    }
+
+    #info h2 {
+        font-size: 35;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    #info ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #info li {
+        line-height: 2em;
+        font-size: 20px;
+    }
+
+    /* COMPANY */
+    #company {
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+
+    #company h4 {
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    #company ul {
+        padding: 0;
+        list-style: none;
+        line-height: 2em;
+    }
+
+    #company input[type="text"] {
+        padding: 7px;
+    }
+
+
+    #company button {
+        background: #222;
+        color: #fff;
+        padding: 10px;
+        border: 0;
+    }
+</style>
+
+<section id="page" class="about">
+    <div class="container">
+        <div class="row center-xs center-sm center-md center-lg">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2><span class="primary-text">Who</span> We Are</h2>
+                <p>An American watch sale company with poineer named LUXURY WATCHES founded in 2013 and went global in
+                    2016, with headquarters in Switzerland and Branch in California, with license from Different
+                    comapanies Manufacturing watches to buy and sell their watches</p>
+                <p>We have been committed to our tradition of excellence for more than 7 years. Our goal for watches is
+                    to meet the new trend and make sure our customers gain Maximum satisfaction in all our products
+                    worldwide. We purchase and deal only with extraordinary and timeless designs and ethically sourced
+                    materials, birnging the finest of your wrist.</p>
+                <p>We hope you enjoy journey through the universe of LUXURY WATCHES</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row center-xs center-sm center-md center-lg">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2><span class="primary-text">What</span> We Do</h2>
+                <p>
+                <ul>
+                    <li>Watch Servicing</li>
+                    <li>Watch Repairs and Restoration</li>
+                    <li>Valautions</li>
+                    <li>Watches of Switzerland Protect</li>
+                    <li>Strap Replacement</li>
+                    <li>Trade and Exchange</li>
+                    <li>Reproofing</li>
+                    <li>Battery Change</li>
+                    <li>Engraving</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row center-xs center-sm center-md center-lg">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2><span class="primary-text">Shipping</span> Services</h2>
+                <p class="lead">Air and ground shipment time frames are business days only, and exclude weekends and/or
+                    holidays. Orders outside the 48
+                    continental States require Second Day or Next Day Air service.</p>
+
+                <p>INTERNATIONAL SHIPPING & DUTY CHARGES
+                    LuxuryWatches.com does not assess duties for international orders and they are subsequently subject
+                    to applicable
+                    customs, import duties and taxes, which are the sole responsibility of the customer. Please contact
+                    your local customs
+                    office for details.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPANY-->
+<section id="company">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!--Grid row-->
+                <div class="row wow fadeIn">
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li><i class="fa fa-phone"></i>+1(630)866-6743</li>
+                            <li><i class="fa fa-envelope"></i>wluxury27@gmail.com</li>
+                            <li><i class="fa fa-map"></i>1652 W Texas St, Fairfield, CA 94533, United States </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <h4>About Us</h4>
+                        <p>Careers
+                            Corporate Policies
+                            Modern Slavery Act
+                            Privacy & Cookies
+                            Terms & Conditions</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <h4>Newsletter</h4>
+                        <p>Please apply to our newsletter for more exciting content</p>
+                        <form action="">
+                            <input type="text" name="email" placeholder="Enter email">
+                            <button type="submit" name="button">Submit</button>
+                        </form>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock %}
+<!--Grid column-->

@@ -7,15 +7,35 @@ from django_countries.fields import CountryField
 
 
 CATEGORY_CHOICES = (
-    ('S', 'Shirt'),
-    ('SW', 'Sport wear'),
-    ('OW', 'Outwear')
+    ('S', 'Rolex'),
+    ('RM', 'Richard Mille'),
+    ('H', 'Hublot'),
+    ('FM', 'Frank Muller'),
+    ('AP', 'Audemars Piguet'),
+    ('P', 'Patek Phillipe'),
+    ('Z', 'Zenith'),
+    ('B', 'Breitling'),
+    ('C', 'Constantin'),
+    ('O', 'Omega'),
+    ('M', 'Montblanc'),
+    ('V', 'Versace'),
+    ('C', 'Cartier'),
+    ('JL', 'Jaeger Lecoultre'),
+    ('JC', 'Jacob and Co'),
+    ('Co', 'Corum'),
+    ('J', 'Jeweleries'),
+    ('I', 'IWC')
 )
 
 LABEL_CHOICES = (
     ('P', 'primary'),
     ('S', 'secondary'),
     ('D', 'danger')
+)
+LABEL_NAME = (
+    ('S', 'Sale'),
+    ('N', 'New'),
+    ('L', 'Limited Edition')
 )
 
 ADDRESS_CHOICES = (
@@ -39,10 +59,15 @@ class Item(models.Model):
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+    label_name = models.CharField(choices=LABEL_NAME, max_length=2)
     label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
+    additional_information = models.TextField()
+    additional_image1 = models.ImageField()
+    additional_image2 = models.ImageField()
+    additional_image3 = models.ImageField()
 
     def __str__(self):
         return self.title
@@ -62,6 +87,21 @@ class Item(models.Model):
             'slug': self.slug
         })
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+    
+    class Meta:
+        verbose_name_plural = "Catergories"
+        
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse("core:product", kwargs={
+            'slug': self.slug
+        })
+    
 
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

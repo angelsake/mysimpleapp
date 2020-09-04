@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Search Results: {{ query| safe }}</h1>
+
+<table class="table">
+    <thead>
+        <th></th>
+        <th>Watches</th>
+    </thead>
+    <tbody>
+        {% for  item  in query %}
+        <tr>
+            <td style="width: 160px; height: 160px">
+                {% if query.image_set.all %}
+                <div
+                    style="width:100%; height:100%; background-image:url('{{query.image}}'); background-size:cover; background-repeat:no-repeat;background-position:center;">
+                </div>
+
+                {% else %}
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ item.get_absolute_url}}">{{ item }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -13,7 +13,7 @@ from django.utils import timezone
 from django.views.generic import ListView, DetailView, View
 
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
+from .models import Item, Category, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -349,6 +349,38 @@ class HomeView(ListView):
     model = Item
     paginate_by = 10
     template_name = "home.html"
+    
+class CategoryView(ListView):
+    model = Item
+    template_name = "categories_item.html"
+    
+    
+    def get_queryset(self):
+        self.category = get_object_or_404(Item, slug=self.slug)
+        return Item.objects.filter(category=self.category)
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        context['category'] = self.category
+        return context
+
+def about(request):
+    return render(request, 'about.html')
+
+def search(request):
+    try:
+        search = request.GET.get('search')
+    except:
+        search = None
+    if search:
+        item = Item.objects.filter(title__icontains=search)
+        context = {'query': item, 'item':item}
+        template = "search.html"
+    else:
+        template = "home.html"
+        context ={}
+    return render(request, template, context)
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
